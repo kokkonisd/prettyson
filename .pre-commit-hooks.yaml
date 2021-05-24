@@ -1,0 +1,7 @@
+- id: prettyson
+  name: prettyson
+  description: "A JSON file formatter"
+  entry: prettyson
+  language: python
+  language_version: python3
+  require_serial: true
