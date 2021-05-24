@@ -17,8 +17,8 @@ jobs:
       run: pip3 install -U wheel --user
     - name: Install Python dependencies
       run: pip3 install -r requirements.txt
-    - name: Run black
-      run: python3 -m black your_cli_tool/*.py
+    - name: Run pre-commit checks
+      run: pre-commit install && pre-commit run --all-files
     - name: Run tox
       run: python3 -m tox
 
@@ -29,7 +29,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Python dependencies
       run: pip3 install -r requirements.txt
-    - name: Run black
-      run: black your_cli_tool/*.py
+    - name: Run pre-commit checks
+      run: pre-commit install && pre-commit run --all-files
     - name: Run tox
       run: tox
