@@ -3,7 +3,7 @@
 import argparse
 import sys
 
-from prettyson.definitions import DEFAULT_INDENT
+from prettyson.definitions import DEFAULT_INDENT, __version__
 from prettyson.format import format_files
 
 
@@ -12,6 +12,13 @@ def main():
         prog="prettyson",
         description="Check that JSON files are properly formatted.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    arg_parser.add_argument(
+        "-v",
+        "--version",
+        help="print prettyson's version",
+        action="version",
+        version=f"prettyson {__version__}",
     )
     arg_parser.add_argument(
         "-d",
