@@ -114,3 +114,30 @@ def test_format_correctly_formatted_tabs_file(capsys):
 
     captured = capsys.readouterr()
     assert captured.out == expected_output
+
+
+def test_format_unsorted_file(capsys):
+    f = os.path.join(TEST_DATA_DIR, "unsorted.json")
+    expected_output = (
+        f"{color_message('1 files would be reformatted:', color='yellow')}\n"
+        f"{color_message(f'- {f}', color='yellow')}\n"
+    )
+
+    res = format_files(files=[f], dry_run=True, sort=True)
+    assert not res
+
+    captured = capsys.readouterr()
+    assert captured.out == expected_output
+
+
+def test_format_sorted_file(capsys):
+    f = os.path.join(TEST_DATA_DIR, "sorted.json")
+    expected_output = (
+        f"{color_message('All good, no files have changed!', color='green')}\n"
+    )
+
+    res = format_files(files=[f], dry_run=True, sort=True)
+    assert res
+
+    captured = capsys.readouterr()
+    assert captured.out == expected_output

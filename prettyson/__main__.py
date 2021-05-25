@@ -39,6 +39,12 @@ def main():
         help="use tabs for indentation",
         action="store_true",
     )
+    indentation_args.add_argument(
+        "-s",
+        "--sort",
+        help="sort the keys of the JSON file(s)",
+        action="store_true",
+    )
     arg_parser.add_argument("files", help="the JSON files to format", nargs="+")
     args = arg_parser.parse_args()
 
@@ -46,6 +52,7 @@ def main():
         files=args.files,
         indent=args.indent if not args.use_tabs else 1,
         tabs=args.use_tabs,
+        sort=args.sort,
         dry_run=args.dry_run,
         quiet=args.quiet,
     )

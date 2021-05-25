@@ -8,6 +8,7 @@ def format_files(
     files: List[str],
     indent: int = DEFAULT_INDENT,
     tabs: bool = False,
+    sort: bool = False,
     dry_run: bool = False,
     quiet: bool = False,
 ) -> bool:
@@ -16,6 +17,7 @@ def format_files(
     :param files: the files to format
     :param indent: the amount of spaces to use as indentation
     :param tabs: use <indent> amount of tabs if True
+    :param sort: if True, sort keys in JSON file
     :param dry_run: do not change the contents of the files
     :param quiet: do not print any output
     :return: True if successful, False otherwise
@@ -36,7 +38,7 @@ def format_files(
             continue
 
         # Format the data and append a newline at the end
-        formatted_data = json.dumps(data, indent=indentation) + "\n"
+        formatted_data = json.dumps(data, indent=indentation, sort_keys=sort) + "\n"
         if raw_data != formatted_data:
             files_changed.append(f)
             # Overwrite file, reformatting it
