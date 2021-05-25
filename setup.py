@@ -26,5 +26,5 @@ setuptools.setup(
             "prettyson = prettyson.__main__:main",
         ],
     },
-    python_requires=">=3.6",
+    python_requires=">=3.7",
 )
