@@ -1,20 +1,10 @@
 import subprocess
 import os
-import sys
 
 from prettyson.format import format_files
 from prettyson.definitions import color_message
 
 TEST_DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
-
-
-def test_cli_calls():
-    # Call the tool from the command line
-    res = subprocess.run([sys.executable, "-m", "prettyson"])
-    assert res.returncode == 2
-
-    res = subprocess.run([sys.executable, "-m", "prettyson", "--help"])
-    assert res.returncode == 0
 
 
 def test_format_invalid_file(capsys):
