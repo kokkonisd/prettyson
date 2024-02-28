@@ -1,5 +1,12 @@
 # prettyson
 
+**DEPRECATED: this formatter is deprecated. Its main use case was pre-commit hooks, but there is a
+much better hook to use in that case:
+<https://github.com/pre-commit/pre-commit-hooks/tree/main?tab=readme-ov-file#pretty-format-json>.
+Please use that one instead.**
+
+---
+
 ![CI](https://github.com/kokkonisd/prettyson/workflows/CI/badge.svg)
 ![codecov](https://codecov.io/gh/kokkonisd/prettyson/branch/master/graph/badge.svg)
 
